@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RALPH — Find Your Ralph | Personal Wig Match</title>
+<meta name="description" content="Answer a few questions and a Ralph specialist will match you with the right wig and the next private fitting or pop-up in your city." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<header id="header" class="always-solid">
+  <div class="topbar">By Private Appointment &nbsp;<span>—</span>&nbsp; Aventura Atelier &amp; Pop-Up Expos in New York · Italy · Paris · Miami</div>
+  <nav class="nav">
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links left">
+      <a href="sheitels.html">Sheitels</a>
+      <a href="medical.html">Medical</a>
+      <a href="beauty.html">Beauty</a>
+    </div>
+    <a href="index.html" class="brand">RALPH</a>
+    <div class="nav-links right">
+      <a href="film-theatre.html">Film &amp; Theatre</a>
+      <a href="dealers.html">Become a Dealer</a>
+      <a href="index.html#visit">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<!-- QUIZ -->
+<section class="quiz-wrap">
+  <div class="quiz-progress" id="qProgress"></div>
+
+  <form id="quiz" onsubmit="return false;">
+    <!-- Step 1 -->
+    <div class="quiz-step active" data-step="0">
+      <div class="eyebrow">Find Your Ralph</div>
+      <h2>What brings you to Ralph?</h2>
+      <div class="quiz-opts" data-q="goal">
+        <button type="button" class="quiz-opt" data-val="A sheitel" data-page="sheitels.html">A sheitel for daily wear</button>
+        <button type="button" class="quiz-opt" data-val="A kallah sheitel" data-page="kallah.html">A kallah sheitel (bride)</button>
+        <button type="button" class="quiz-opt" data-val="A medical wig" data-page="medical.html">Through hair loss (medical)</button>
+        <button type="button" class="quiz-opt" data-val="A beauty wig" data-page="beauty.html">A new look (beauty)</button>
+        <button type="button" class="quiz-opt" data-val="A topper or fall" data-page="toppers-falls.html">A topper or fall</button>
+        <button type="button" class="quiz-opt" data-val="Film / theatre" data-page="film-theatre.html">Film &amp; theatre</button>
+        <button type="button" class="quiz-opt" data-val="Not sure yet" data-page="how-to-buy.html">I'm not sure yet</button>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="quiz-step" data-step="1">
+      <div class="eyebrow">Find Your Ralph</div>
+      <h2>When do you need it?</h2>
+      <div class="quiz-opts" data-q="timeline">
+        <button type="button" class="quiz-opt" data-val="As soon as possible">As soon as possible</button>
+        <button type="button" class="quiz-opt" data-val="This month">This month</button>
+        <button type="button" class="quiz-opt" data-val="In 1–3 months">In 1–3 months</button>
+        <button type="button" class="quiz-opt" data-val="For a wedding / simcha">For a wedding or simcha</button>
+        <button type="button" class="quiz-opt" data-val="Just exploring">Just exploring</button>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="quiz-step" data-step="2">
+      <div class="eyebrow">Find Your Ralph</div>
+      <h2>The look you have in mind</h2>
+      <div class="quiz-opts" data-q="length">
+        <button type="button" class="quiz-opt" data-val="Short">Short</button>
+        <button type="button" class="quiz-opt" data-val="Shoulder-length">Shoulder-length</button>
+        <button type="button" class="quiz-opt" data-val="Long">Long</button>
+        <button type="button" class="quiz-opt" data-val="Not sure — guide me">Not sure — guide me</button>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="quiz-step" data-step="3">
+      <div class="eyebrow">Find Your Ralph</div>
+      <h2>Color &amp; texture?</h2>
+      <div class="quiz-field">
+        <input type="text" id="qColor" placeholder="Color (e.g. warm brunette, blonde)" />
+        <input type="text" id="qTexture" placeholder="Texture (straight, wavy, curly)" />
+      </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="quiz-step" data-step="4">
+      <div class="eyebrow">Find Your Ralph</div>
+      <h2>Where are you?</h2>
+      <div class="quiz-field">
+        <input type="text" id="qCity" placeholder="Your city" />
+        <p style="font-size:.82rem;color:var(--ink-soft);line-height:1.6">We hold private fittings in Aventura and travel to New York, Italy, Paris &amp; Miami. Tell us your city and we'll find the nearest.</p>
+      </div>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="quiz-step" data-step="5">
+      <div class="eyebrow">Find Your Ralph</div>
+      <h2>How can we reach you?</h2>
+      <div class="quiz-field">
+        <input type="text" id="qName" placeholder="Your name" />
+        <input type="tel" id="qPhone" placeholder="Phone / WhatsApp" />
+      </div>
+    </div>
+
+    <div class="quiz-nav">
+      <button type="button" class="quiz-back" id="qBack" hidden>← Back</button>
+      <button type="button" class="btn dark" id="qNext">Next</button>
+    </div>
+  </form>
+
+  <!-- Done -->
+  <div class="quiz-done" id="qDone">
+    <div class="ic gold-text">✦</div>
+    <h2>We'll Match You, <span id="qDoneName">friend</span></h2>
+    <p>A Ralph specialist will personally match you with the right wig and the next private fitting or pop-up. Send your answers now and we'll be in touch.</p>
+    <div class="visit-actions">
+      <a class="btn dark" id="qSend" href="#" target="_blank" rel="noopener">Send to Ralph on WhatsApp</a>
+      <a class="btn dark" id="qExplore" href="index.html">Meanwhile, explore →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <img src="images/ralph-logo.svg" alt="RALPH — The Most Beautiful Wigs in the World · Since 1966" class="foot-logo" />
+      <p>The most beautiful wigs in the world, made in Italy and sold atelier-direct since 1966.</p>
+    </div>
+    <div class="foot-col">
+      <h5>Wigs &amp; Pieces</h5>
+      <a href="sheitels.html">Sheitels</a>
+      <a href="kallah.html">Kallah</a>
+      <a href="medical.html">Medical</a>
+      <a href="beauty.html">Beauty</a>
+      <a href="film-theatre.html">Film &amp; Theatre</a>
+      <a href="toppers-falls.html">Toppers &amp; Falls</a>
+    </div>
+    <div class="foot-col">
+      <h5>The House</h5>
+      <a href="atelier.html">Meet Ralph</a>
+      <a href="how-to-buy.html">How to Buy</a>
+      <a href="refresh.html">Refresh &amp; Repair</a>
+      <a href="warranty.html">Warranty</a>
+      <a href="dealers.html">Become a Dealer</a>
+    </div>
+    <div class="foot-col">
+      <h5>Contact</h5>
+      <a href="tel:+13053324220">(305) 332-4220</a>
+      <a href="mailto:contact@ralph-wigs.com">contact@ralph-wigs.com</a>
+      <a href="https://wa.me/13053324220" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="index.html#locations">Aventura, FL</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 1966–2026 RALPH Wigs®. All rights reserved.</span>
+    <span>New York · Italy · Paris · Miami</span>
+  </div>
+</footer>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mm-close" id="mmClose" aria-label="Close">&times;</button>
+  <nav>
+    <a href="sheitels.html">Sheitels</a>
+    <a href="medical.html">Medical</a>
+    <a href="beauty.html">Beauty</a>
+    <a href="film-theatre.html">Film &amp; Theatre</a>
+    <a href="atelier.html">Meet Ralph</a>
+    <a href="how-to-buy.html">How to Buy</a>
+    <a href="dealers.html">Become a Dealer</a>
+  </nav>
+  <a class="btn dark" href="index.html#visit" style="margin-top:36px">Request a Private Fitting</a>
+</div>
+
+<a class="wa" href="https://wa.me/13053324220" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.515 5.26l-.999 3.648 3.973-1.715zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+</a>
+
+<script>
+  // header + mobile menu
+  var header=document.getElementById('header');
+  var mm=document.getElementById('mobileMenu');
+  document.getElementById('menuToggle').addEventListener('click',function(){mm.classList.add('open');document.body.style.overflow='hidden';});
+  function closeMM(){mm.classList.remove('open');document.body.style.overflow='';}
+  document.getElementById('mmClose').addEventListener('click',closeMM);
+  mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMM);});
+
+  // quiz logic
+  var steps=[].slice.call(document.querySelectorAll('.quiz-step'));
+  var total=steps.length, cur=0;
+  var answers={goal:'',timeline:'',length:'',color:'',texture:'',city:'',name:'',phone:'',page:'index.html'};
+  var prog=document.getElementById('qProgress');
+  for(var i=0;i<total;i++){var s=document.createElement('span');prog.appendChild(s);}
+  var dots=[].slice.call(prog.children);
+  var backBtn=document.getElementById('qBack'), nextBtn=document.getElementById('qNext');
+
+  function render(){
+    steps.forEach(function(st,idx){st.classList.toggle('active', idx===cur);});
+    dots.forEach(function(d,idx){d.classList.toggle('on', idx<=cur);});
+    backBtn.hidden = cur===0;
+    nextBtn.textContent = cur===total-1 ? 'See My Match' : 'Next';
+  }
+  // option buttons
+  document.querySelectorAll('.quiz-opts').forEach(function(grp){
+    grp.querySelectorAll('.quiz-opt').forEach(function(opt){
+      opt.addEventListener('click',function(){
+        grp.querySelectorAll('.quiz-opt').forEach(function(o){o.classList.remove('sel');});
+        opt.classList.add('sel');
+        answers[grp.dataset.q]=opt.dataset.val;
+        if(opt.dataset.page) answers.page=opt.dataset.page;
+        setTimeout(function(){ if(cur<total-1){cur++;render();} }, 220);
+      });
+    });
+  });
+  backBtn.addEventListener('click',function(){ if(cur>0){cur--;render();} });
+  nextBtn.addEventListener('click',function(){
+    if(cur===3){answers.color=document.getElementById('qColor').value;answers.texture=document.getElementById('qTexture').value;}
+    if(cur===4){answers.city=document.getElementById('qCity').value;}
+    if(cur===5){
+      answers.name=document.getElementById('qName').value;
+      answers.phone=document.getElementById('qPhone').value;
+      finish(); return;
+    }
+    if(cur<total-1){cur++;render();}
+  });
+
+  function finish(){
+    document.getElementById('quiz').style.display='none';
+    prog.style.display='none';
+    document.getElementById('qDoneName').textContent = answers.name ? answers.name.split(' ')[0] : 'friend';
+    document.getElementById('qExplore').href = answers.page || 'index.html';
+    var msg='Hi Ralph! I used Find Your Ralph:\n'+
+      '• Looking for: '+answers.goal+'\n'+
+      '• Timeline: '+answers.timeline+'\n'+
+      '• Length: '+answers.length+'\n'+
+      (answers.color?('• Color: '+answers.color+'\n'):'')+
+      (answers.texture?('• Texture: '+answers.texture+'\n'):'')+
+      (answers.city?('• City: '+answers.city+'\n'):'')+
+      (answers.name?('• Name: '+answers.name+'\n'):'')+
+      (answers.phone?('• Phone: '+answers.phone+'\n'):'')+
+      "I'd love to book a fitting.";
+    document.getElementById('qSend').href='https://wa.me/13053324220?text='+encodeURIComponent(msg);
+    document.getElementById('qDone').classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  render();
+</script>
+<script src="app.js"></script>
+</body>
+</html>

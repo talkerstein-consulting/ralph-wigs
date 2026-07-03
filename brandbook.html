@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="light only" />
+<title>RALPH — Brand & Imagery Direction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root{--ivory:#FBFAF6;--paper:#F3F0E9;--ink:#181818;--ink-soft:#6f6a63;--line:#e4ded2;--gold1:#b08d57;--gold2:#d9b877;--gold3:#e6c67e;--serif:'Cormorant Garamond',serif;--sans:'Jost',sans-serif;--grad:linear-gradient(120deg,#b08d57,#e6c67e 55%,#c9a35f)}
+html{color-scheme:light only}
+*{margin:0;padding:0;box-sizing:border-box}
+body{color-scheme:light;background:#d9d5cc;font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+.gold{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.eyebrow{font-family:var(--sans);font-size:.62rem;font-weight:400;letter-spacing:.42em;text-transform:uppercase;color:var(--gold1)}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:300;line-height:1.1}
+p{font-weight:300;line-height:1.7;color:var(--ink)}
+em{font-style:italic}
+
+/* Page model */
+.page{position:relative;width:210mm;min-height:297mm;background:var(--ivory);margin:0 auto 12px;padding:24mm 22mm;overflow:hidden}
+.page.dark{background:var(--ink);color:var(--ivory)}
+.page.paper{background:var(--paper)}
+.page.bleed{padding:0}
+.pnum{position:absolute;bottom:12mm;right:16mm;font-size:.6rem;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase}
+.dark .pnum{color:rgba(255,255,255,.5)}
+.brandmark{position:absolute;top:12mm;left:16mm;font-family:var(--serif);font-weight:500;letter-spacing:.44em;text-indent:.44em;font-size:.9rem}
+.dark .brandmark{color:var(--ivory)}
+.brandmark.gold{color:transparent}
+
+@media print{
+  body{background:#fff}
+  .noprint{display:none!important}
+  .page{margin:0;box-shadow:none;page-break-after:always;break-after:page}
+  @page{size:A4;margin:0}
+}
+@media screen{ .page{box-shadow:0 6px 30px rgba(0,0,0,.16)} body{padding:24px 0} }
+/* ===== Mobile — full-width pages, stacked layouts ===== */
+@media screen and (max-width:820px){
+  body{padding:0}
+  .page{width:100%;min-height:auto;margin:0 0 8px;padding:34px 22px;overflow:visible}
+  .page.bleed{padding:0}
+  .cover{height:auto;padding:80px 22px 70px}
+  .cover .wm{font-size:3.2rem}
+  .h-big{font-size:2rem}
+  .statement{height:auto;padding:60px 0}
+  .statement .big{font-size:2.1rem}
+  .cols2{grid-template-columns:1fr;gap:6px}
+  .pnum,.brandmark{position:static;display:inline-block}
+  .brandmark{margin-bottom:14px}
+  .pnum{margin-top:20px;color:var(--ink-soft)}
+  /* PASS / NO-PASS example pages: stack image over text */
+  .example{grid-template-columns:1fr;height:auto;margin-top:0;gap:0}
+  .example .imgwrap{height:56vw;max-height:420px}
+  .example .txt{padding:22px 0 0}
+  .example h3{font-size:1.7rem}
+  /* mood board + feature grids */
+  .grid-mood{grid-template-columns:1fr 1fr;grid-auto-rows:38vw;height:auto}
+  .mega-inner,.two-track{flex-direction:column}
+  table.spec td:first-child{width:40%}
+}
+
+.noprint{position:sticky;top:0;z-index:50;background:var(--ink);color:var(--ivory);text-align:center;padding:10px;font-size:.72rem;letter-spacing:.08em}
+.noprint b{color:var(--gold3)}
+
+/* Cover */
+.cover{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;height:297mm}
+.cover .wm{font-family:var(--serif);font-weight:500;font-size:5.4rem;letter-spacing:.34em;text-indent:.34em;line-height:1}
+.cover .rule{width:64px;height:1px;background:var(--grad);margin:26px 0 22px}
+.cover h2{font-size:2.1rem;letter-spacing:.02em;margin-bottom:10px}
+.cover .sub{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-soft)}
+.cover .foot{position:absolute;bottom:22mm;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* Statement */
+.statement{display:flex;flex-direction:column;justify-content:center;height:249mm}
+.statement .big{font-family:var(--serif);font-size:3.4rem;line-height:1.12}
+.statement .big em{font-style:italic}
+.statement .say{margin-top:26px;max-width:52ch;font-size:1.02rem;color:var(--ink-soft)}
+.dark .statement .say{color:rgba(255,255,255,.72)}
+
+/* Generic */
+.lead{font-size:1.05rem;color:var(--ink-soft);max-width:60ch;margin-top:14px}
+.h-big{font-size:2.7rem;margin-top:8px}
+.section-no{font-family:var(--serif);font-size:1rem;color:var(--gold1)}
+.divider{width:100%;height:1px;background:var(--line);margin:22px 0}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:26px}
+.cols2 p{font-size:.92rem;margin-bottom:12px}
+.card{border:1px solid var(--line);border-radius:3px;padding:22px 24px;background:#fff}
+.card h4{font-size:1.4rem;margin-bottom:8px}
+.card p{font-size:.86rem;color:var(--ink-soft)}
+ul.clean{list-style:none;margin-top:14px}
+ul.clean li{position:relative;padding-left:24px;margin-bottom:12px;font-size:.92rem;font-weight:300;line-height:1.5}
+ul.clean li::before{content:"✦";position:absolute;left:0;top:1px;color:var(--gold1);font-size:.8rem}
+ul.x li::before{content:"✕";color:#a6503f}
+ul.check li::before{content:"✓";color:#5b7d54}
+
+/* Image blocks */
+.figure{width:100%;border-radius:2px;overflow:hidden;background:var(--paper)}
+.figure img{width:100%;display:block}
+.cap{margin-top:10px;font-size:.72rem;letter-spacing:.04em;color:var(--ink-soft)}
+.cap b{color:var(--ink);font-weight:500;letter-spacing:.1em;text-transform:uppercase;font-size:.64rem}
+.full-bleed-img{width:210mm;height:297mm;object-fit:cover;display:block}
+.grid-mood{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:52mm;gap:5px;height:100%}
+.grid-mood img{width:100%;height:100%;object-fit:cover;display:block}
+.grid-mood .tall{grid-row:span 2}
+
+.example{display:grid;grid-template-columns:1.15fr .85fr;gap:0;height:249mm;margin-top:6mm}
+.example .imgwrap{overflow:hidden;background:var(--paper)}
+.example .imgwrap img{width:100%;height:100%;object-fit:cover;display:block}
+.example .txt{padding:0 0 0 30px;display:flex;flex-direction:column;justify-content:center}
+.example .verdict{display:inline-block;font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;padding:6px 14px;border-radius:2px;margin-bottom:16px;width:max-content}
+.verdict.pass{background:rgba(91,125,84,.12);color:#4d6b47;border:1px solid #9db596}
+.verdict.no{background:rgba(166,80,63,.1);color:#a6503f;border:1px solid #cфa}
+.verdict.no{border:1px solid #d8b3a9}
+.example h3{font-size:2rem;margin-bottom:12px}
+.example p{font-size:.9rem;color:var(--ink-soft);margin-bottom:12px}
+.tagm{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold1);margin-bottom:6px}
+
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
+.pair .figure img{height:78mm;object-fit:cover}
+.two-track{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px}
+.two-track .tt{border:1px solid var(--line);border-radius:3px;overflow:hidden;background:#fff}
+.two-track .tt .hd{padding:16px 20px;border-bottom:1px solid var(--line)}
+.two-track .tt .hd h4{font-size:1.5rem}
+.two-track .tt .bd{padding:14px 20px 20px}
+.two-track .tt .bd p{font-size:.82rem;color:var(--ink-soft);margin-bottom:8px}
+.mini{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold1)}
+table.spec{width:100%;border-collapse:collapse;margin-top:18px;font-size:.82rem}
+table.spec td{border-bottom:1px solid var(--line);padding:10px 8px;vertical-align:top}
+table.spec td:first-child{font-family:var(--serif);font-size:1.05rem;width:32%;color:var(--ink)}
+.big-quote{font-family:var(--serif);font-style:italic;font-size:1.7rem;line-height:1.3;color:var(--ink)}
+.toc{margin-top:30px}
+.toc div{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:13px 0;font-size:.95rem}
+.toc .t{font-family:var(--serif);font-size:1.25rem}
+.toc .n{color:var(--gold1)}
+</style>
+</head>
+<body>
+
+<div class="noprint">Viewing on screen. To make the PDF: <b>Ctrl/Cmd + P → Save as PDF → paper A4, margins None, “Background graphics” ON.</b></div>
+
+<!-- 1 COVER -->
+<section class="page cover">
+  <div class="eyebrow" style="letter-spacing:.5em">The House of RALPH · Since 1966</div>
+  <div style="height:30px"></div>
+  <div class="wm gold">RALPH</div>
+  <div class="rule"></div>
+  <h2>Brand &amp; Imagery Direction</h2>
+  <div class="sub">Chanel-level polish · Bnei-Brak-level discretion</div>
+  <div class="foot">Prepared for Gitty &amp; the House · by Talkerstein · June 2026</div>
+</section>
+
+<!-- 2 THESIS -->
+<section class="page dark">
+  <div class="brandmark gold">RALPH</div>
+  <div class="statement">
+    <div class="eyebrow">The whole brand in one line</div>
+    <div class="big" style="margin-top:20px">Chanel-level <em>polish.</em><br/>Bnei-Brak-level <em>discretion.</em></div>
+    <div class="say">Aspirational and expensive to the eye. Modest, humble and trustworthy to the soul. The luxury lives in the <em>restraint</em> — never in the skin. Everything in this book serves that one sentence.</div>
+  </div>
+  <div class="pnum">02</div>
+</section>
+
+<!-- 3 CONTENTS -->
+<section class="page">
+  <div class="brandmark gold">RALPH</div>
+  <div class="eyebrow">Contents</div>
+  <h2 class="h-big">What's Inside</h2>
+  <div class="toc">
+    <div><span class="t">I · The Position — “Chanel but Bnei Brak”</span><span class="n">04</span></div>
+    <div><span class="t">II · The One Decision: Real vs. AI</span><span class="n">05</span></div>
+    <div><span class="t">III · The Visual System</span><span class="n">06</span></div>
+    <div><span class="t">IV · Mood Board</span><span class="n">07</span></div>
+    <div><span class="t">V · The PASS Gallery (with reasons)</span><span class="n">08</span></div>
+    <div><span class="t">VI · The NO-PASS Gallery (with reasons)</span><span class="n">14</span></div>
+    <div><span class="t">VII · The PASS List &amp; NO-PASS List</span><span class="n">18</span></div>
+    <div><span class="t">VIII · The Shoot Brief &amp; Shot List</span><span class="n">20</span></div>
+    <div><span class="t">IX · Two Tracks — America &amp; Israel</span><span class="n">22</span></div>
+    <div><span class="t">X · Benchmarks &amp; Copy Hooks</span><span class="n">23</span></div>
+  </div>
+  <div class="divider" style="margin-top:40px"></div>
+  <p class="cap"><b>A note on the images.</b> &nbsp;The photographs in this book were AI-generated as <em>direction references</em> — to show lighting, crop, mood and modesty. They are not final assets. Per Section II, the real campaign must be shot with real hair.</p>
+  <div class="pnum">03</div>
+</section>
+
+<!-- 4 POSITION -->
+<section class="page paper">
+  <div class="brandmark gold">RALPH</div>
+  <div class="section-no">Section I</div>
+  <h2 class="h-big">“Chanel, but it references Bnei&nbsp;Brak.”</h2>
+  <p class="lead">Gitty's line is the whole strategy. It sounds like a contradiction. It isn't — because luxury houses already sell desire without showing skin. They do it through restraint, gesture, light and craft. That is exactly the bridge to a modest brand.</p>
+  <div class="cols2">
+    <div>
+      <div class="mini">What we take from Chanel</div>
+      <ul class="clean">
+        <li>One soft, directional light — shadow is the luxury signal, not flat brightness.</li>
+        <li>Vast negative space; the subject fills less than a third of the frame.</li>
+        <li>One colour world, repeated relentlessly, until it becomes the logo.</li>
+        <li>A serif wordmark, wide letter-spacing, and the confidence to under-explain.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="mini">What we take from Bnei Brak</div>
+      <ul class="clean">
+        <li>Sensuality moves to the <em>hands, the hair in motion, the gaze</em> — never the body.</li>
+        <li>Coverage is absolute: high necks, collarbone-up, or no coverage question at all.</li>
+        <li>A back-of-head or profile reads as <em>more</em> editorial, not less.</li>
+        <li>Humility and discretion signal trust; boasting reads as cheap.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <p class="big-quote">The single most Ralph image — a fall of waves in warm directional light, a hand setting the hair, in a quiet ivory frame — is at the same time the most Chanel <em>and</em> the most tznius picture we can make. That is the identity, not a compromise.</p>
+  <div class="pnum">04</div>
+</section>
+
+<!-- 5 REAL VS AI -->
+<section class="page">
+  <div class="brandmark gold">RALPH</div>
+  <div class="section-no">Section II</div>
+  <h2 class="h-big">The one decision: real photography</h2>
+  <p class="lead">You cannot build a $2,000–$6,000 sheitel brand on AI images. It is the one corner that cannot be cut — and here is why, for the owners.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:22px;align-items:center">
+    <div>
+      <ul class="clean">
+        <li><b>Your buyer is the world's toughest wig critic.</b> A frum woman spots a fake hairline, plastic shine or “helmet” density instantly — and AI gets exactly those things wrong.</li>
+        <li><b>Hair is the hardest thing for AI to fake.</b> It's tens of thousands of strands and complex light-scatter; diffusion models only approximate it. Forensic deepfake detectors are literally built on the fact that <em>AI hair flickers.</em></li>
+        <li><b>A fake image disproves the promise.</b> Ralph's pitch is “undetectable, real hair.” An image that looks fake actively argues the opposite.</li>
+        <li><b>Real photography pays for itself.</b> In beauty, real/UGC imagery lifts conversion up to 161%, video reviews +45%, ~$4 back per $1. It isn't a cost — it's the thing that makes the wig look worth the price.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="figure"><img src="images/brandbook/no-fake.jpg" alt="AI fake hairline"/></div>
+      <div class="cap"><b>NO-PASS · AI-generated</b><br/>Note the too-perfect, uniform hairline and plastic sheen — the exact tells your customer catches. Fine for mood; fatal for the product shot.</div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <p style="font-size:.95rem"><b class="gold">The rule.</b> &nbsp;AI is welcome for mood, backgrounds and abstract texture. The actual wig, on a head, that a customer judges and buys — <b>real photograph, and ideally video</b> (hair in motion is the proof of realism).</p>
+  <div class="pnum">05</div>
+</section>
+
+<!-- 6 VISUAL SYSTEM -->
+<section class="page paper">
+  <div class="brandmark gold">RALPH</div>
+  <div class="section-no">Section III</div>
+  <h2 class="h-big">The Visual System</h2>
+  <p class="lead">Ten rules. If every asset obeys them, the brand looks expensive — automatically.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px 30px;margin-top:22px">
+    <div class="card"><h4 class="gold">01 · Light</h4><p>One soft source, ~45°, gently wrapping. Shadow on the far side. Never flat, even, ring-lit brightness — that is the #1 cheap tell.</p></div>
+    <div class="card"><h4 class="gold">02 · Space</h4><p>The subject fills under 30% of the frame. Negative space is mandatory. Emptiness reads as confidence.</p></div>
+    <div class="card"><h4 class="gold">03 · Colour</h4><p>Warm ivory / champagne / antique-gold for product. Reserve deep black-&amp;-white for heritage and film only. Never over-saturate.</p></div>
+    <div class="card"><h4 class="gold">04 · Crop</h4><p>Tight and partial — nape, profile, hands-in-hair, back-of-head — over full-frontal portraits.</p></div>
+    <div class="card"><h4 class="gold">05 · Sensuality</h4><p>Carried by hands, hair movement, gaze and texture. Never by skin. This is the whole modest-luxury technique.</p></div>
+    <div class="card"><h4 class="gold">06 · Gaze</h4><p>Three-quarter or downward, mysterious. Never a direct, smiling, “selling” look to camera in hero imagery.</p></div>
+    <div class="card"><h4 class="gold">07 · Type</h4><p>A Didot-leaning serif wordmark, all-caps, wide letter-spacing. White space around type = 3× what feels enough.</p></div>
+    <div class="card"><h4 class="gold">08 · Restraint</h4><p>No props beyond one symbolic object. No text on photos. No clutter. One focal point per frame.</p></div>
+    <div class="card"><h4 class="gold">09 · Motion</h4><p>Brand film = slow, archival black-&amp;-white, craftsman's hands. No fast cuts, no upbeat pop.</p></div>
+    <div class="card"><h4 class="gold">10 · Coverage</h4><p>Absolute. High necklines, collarbone-up, or angles that never raise the question. No exceptions, ever.</p></div>
+  </div>
+  <div class="pnum">06</div>
+</section>
+
+<!-- 7 MOOD BOARD -->
+<section class="page bleed">
+  <div class="grid-mood">
+    <img class="tall" src="images/brandbook/pass-profile.jpg" alt=""/>
+    <img src="images/brandbook/pass-hero-b.jpg" alt=""/>
+    <img src="images/brandbook/pass-texture.jpg" alt=""/>
+    <img src="images/brandbook/pass-hands.jpg" alt=""/>
+    <img class="tall" src="images/brandbook/pass-fulllength.jpg" alt=""/>
+    <img src="images/brandbook/pass-atelier-bw.jpg" alt=""/>
+    <img src="images/brandbook/pass-heritage-bw.jpg" alt=""/>
+    <img src="images/brandbook/pass-portrait.jpg" alt=""/>
+  </div>
+  <div style="position:absolute;left:16mm;bottom:14mm;background:rgba(24,20,16,.72);color:#fff;padding:12px 18px;border-radius:2px">
+    <div class="eyebrow" style="color:var(--gold3)">Section IV · Mood Board</div>
+    <div style="font-family:var(--serif);font-size:1.5rem;margin-top:4px">The World of Ralph</div>
+  </div>
+</section>
+
+<!-- 8-13 PASS GALLERY -->
+<section class="page">
+  <div class="brandmark gold">RALPH</div>
+  <div class="section-no">Section V · The PASS Gallery</div>
+  <div class="example">
+    <div class="imgwrap"><img src="images/brandbook/pass-hero-b.jpg" alt=""/></div>
+    <div class="txt">
+      <span class="verdict pass">✓ Pass · The Signature</span>
+      <div class="tagm">Back-of-head hero</div>
+      <h3>The most Chanel <em>and</em> the most tznius shot at once.</h3>
+      <p>A fall of glossy waves seen from behind, cream high-neck top, warm 45° light, ivory void. The hair is the entire subject — aspirational, sensual through movement, and it never raises a modesty question because there is no front to cover.</p>
+      <p><b>Why it passes:</b> directional light, negative space, warm palette, partial crop, absolute coverage. This is the brand's default hero.</p>
+    </div>
+  </div>
+  <div class="pnum">07</div>
+</section>
+
+<section class="page paper">
+  <div class="brandmark gold">RALPH</div>
+  <div class="example">
+    <div class="imgwrap"><img src="images/brandbook/pass-hands.jpg" alt=""/></div>
+    <div class="txt">
+      <span class="verdict pass">✓ Pass · The Gesture</span>
+      <div class="tagm">Hands in hair</div>
+      <h3>Sensuality lives in the hand.</h3>
+      <p>A single elegant hand drawing through the waves — a delicate ring, warm light, no face. This is the modest-luxury technique borrowed straight from the jewellery houses: desire is carried by gesture and touch, not by the body.</p>
+      <p><b>Why it passes:</b> tactile, intimate, entirely modest, and it proves softness — the thing a buyer wants to feel before she buys.</p>
+    </div>
+  </div>
+  <div class="pnum">08</div>
+</section>
+
+<section class="page">
+  <div class="brandmark gold">RALPH</div>
+  <div class="example">
+    <div class="imgwrap"><img src="images/brandbook/pass-texture.jpg" alt=""/></div>
+    <div class="txt">
+      <span class="verdict pass">✓ Pass · The Proof</span>
+      <div class="tagm">Texture macro</div>
+      <h3>Close enough to see the quality.</h3>
+      <p>An extreme close-up of the strands, light catching individual fibres. Abstract, gorgeous, and 100% modest because it is pure texture. It also does real sales work: it shows the diffuse, matte sheen of real human hair — the opposite of synthetic plastic gloss.</p>
+      <p><b>Why it passes:</b> it makes “European virgin hair” visible instead of just claimed.</p>
+    </div>
+  </div>
+  <div class="pnum">09</div>
+</section>
+
+<section class="page paper">
+  <div class="brandmark gold">RALPH</div>
+  <div class="example">
+    <div class="imgwrap"><img src="images/brandbook/pass-profile.jpg" alt=""/></div>
+    <div class="txt">
+      <span class="verdict pass">✓ Pass · The Face, Modestly</span>
+      <div class="tagm">Profile / turtleneck portrait</div>
+      <h3>When a face is shown, this is how.</h3>
+      <p>A three-quarter profile, cream turtleneck to the chin, warm rim light haloing the hair, a downward gaze. Elegant and human without a single coverage compromise — the “Editorial track” hero for the American and European market.</p>
+      <p><b>Why it passes:</b> high neck, no direct sell-to-camera, warm single light, quiet background.</p>
+    </div>
+  </div>
+  <div class="pnum">10</div>
+</section>
+
+<section class="page">
+  <div class="brandmark gold">RALPH</div>
+  <div class="example">
+    <div class="imgwrap"><img src="images/brandbook/pass-atelier-bw.jpg" alt=""/></div>
+    <div class="txt">
+      <span class="verdict pass">✓ Pass · The Heritage</span>
+      <div class="tagm">The atelier · black &amp; white</div>
+      <h3>Craft is the oldest luxury.</h3>
+      <p>Hands setting hair on a wooden block, in soft window light, in black-and-white. This is the “since 1966” story no competitor can copy — and it doubles as the perfect faceless image for the strictest Israeli channels.</p>
+      <p><b>Why it passes:</b> it sells the maker, not the wearer. Works everywhere, in every market.</p>
+    </div>
+  </div>
+  <div class="pnum">11</div>
+</section>
+
+<section class="page paper">
+  <div class="brandmark gold">RALPH</div>
+  <div class="example">
+    <div class="imgwrap"><img src="images/brandbook/pass-fulllength.jpg" alt=""/></div>
+    <div class="txt">
+      <span class="verdict pass">✓ Pass · The Full Picture</span>
+      <div class="tagm">Full-length, modest</div>
+      <h3>The wig lives in a real, modest wardrobe.</h3>
+      <p>A floor-length cream dress, long sleeves, high neck, hair over one shoulder as the focal point, quiet ivory space. Proof that “aspirational” and “tznius” are the same picture when the styling is done right.</p>
+      <p><b>Why it passes:</b> full coverage, negative space, one focal point, warm restraint.</p>
+    </div>
+  </div>
+  <div class="pnum">12</div>
+</section>
+
+<!-- 14-17 NO-PASS GALLERY -->
+<section class="page">
+  <div class="brandmark gold">RALPH</div>
+  <div class="section-no">Section VI · The NO-PASS Gallery</div>
+  <div class="example">
+    <div class="imgwrap"><img src="images/brandbook/no-mannequin.jpg" alt=""/></div>
+    <div class="txt">
+      <span class="verdict no">✕ No-Pass · Mannequin</span>
+      <div class="tagm">The #1 cheap tell</div>
+      <h3>A wig on a foam head sells inventory, not a house.</h3>
+      <p>Styrofoam heads under flat store light are the single fastest way to look cheap. It reads as “stock,” not “fashion.” Even for faceless Israel-facing content, use a real head, a texture macro, or the atelier — never a mannequin.</p>
+      <p><b>Why it fails:</b> no light, no life, no craft, no aspiration.</p>
+    </div>
+  </div>
+  <div class="pnum">13</div>
+</section>
+
+<section class="page paper">
+  <div class="brandmark gold">RALPH</div>
+  <div class="example">
+    <div class="imgwrap"><img src="images/brandbook/no-plastic.jpg" alt=""/></div>
+    <div class="txt">
+      <span class="verdict no">✕ No-Pass · Plastic / Fake</span>
+      <div class="tagm">Synthetic sheen &amp; helmet shape</div>
+      <h3>The shine that screams “wig.”</h3>
+      <p>Uniform mirror-gloss, stiff helmet volume, a doll-like finish. Synthetic fibre reflects light in a flat plastic way that real hair never does — and hard flash makes it worse. This is precisely the look Ralph exists to beat.</p>
+      <p><b>Why it fails:</b> plastic sheen, no movement, harsh flat flash, uncanny.</p>
+    </div>
+  </div>
+  <div class="pnum">14</div>
+</section>
+
+<section class="page">
+  <div class="brandmark gold">RALPH</div>
+  <div class="example">
+    <div class="imgwrap"><img src="images/brandbook/no-cluttered.jpg" alt=""/></div>
+    <div class="txt">
+      <span class="verdict no">✕ No-Pass · The Snapshot</span>
+      <div class="tagm">Clutter &amp; harsh flash</div>
+      <h3>A phone snap in a messy room.</h3>
+      <p>Busy background, on-camera flash, uneven light. It may be an authentic client photo — but authenticity without art direction reads as amateur, and amateur kills a luxury price. (Real-client content is powerful; it just has to be <em>shot</em>, not snapped.)</p>
+      <p><b>Why it fails:</b> clutter, flat flash, no focal point, no palette.</p>
+    </div>
+  </div>
+  <div class="pnum">15</div>
+</section>
+
+<section class="page paper">
+  <div class="brandmark gold">RALPH</div>
+  <div class="example">
+    <div class="imgwrap"><img src="images/brandbook/no-garish.jpg" alt=""/></div>
+    <div class="txt">
+      <span class="verdict no">✕ No-Pass · Garish</span>
+      <div class="tagm">Over-saturated, over-sharpened</div>
+      <h3>Loud colour is the opposite of luxury.</h3>
+      <p>Punchy orange/red, crushed contrast, e-commerce over-sharpening. Saturation reads as “discount.” Ralph's colour is warm, low, and quiet — the restraint <em>is</em> the price tag.</p>
+      <p><b>Why it fails:</b> saturation, harsh contrast, cheap processing.</p>
+    </div>
+  </div>
+  <div class="pnum">16</div>
+</section>
+
+<!-- 18 PASS LIST -->
+<section class="page">
+  <div class="brandmark gold">RALPH</div>
+  <div class="section-no">Section VII</div>
+  <h2 class="h-big">The PASS List</h2>
+  <p class="lead">If an image does these things, it's on-brand. Use it.</p>
+  <div class="cols2" style="margin-top:20px">
+    <div>
+      <div class="mini">Craft &amp; composition</div>
+      <ul class="clean check">
+        <li>One soft directional light; a real, gentle shadow.</li>
+        <li>Warm ivory / champagne palette (or B&amp;W for heritage).</li>
+        <li>Generous negative space; one focal point.</li>
+        <li>Tight, partial crops — nape, profile, hands, back-of-head.</li>
+        <li>Real human hair with diffuse, matte, moving sheen.</li>
+        <li>Video of hair in motion wherever possible.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="mini">Modesty &amp; tone</div>
+      <ul class="clean check">
+        <li>High necklines; collarbone-up when a face shows.</li>
+        <li>Sensuality via hands, movement, gaze, texture.</li>
+        <li>Three-quarter or downward gaze; quiet, not “selling.”</li>
+        <li>Long sleeves, modest wardrobe, elegant styling.</li>
+        <li>The maker, the craft, the atelier — always safe.</li>
+        <li>Discreet, humble, confident. Under-explained.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pnum">17</div>
+</section>
+
+<!-- 19 NO-PASS LIST -->
+<section class="page paper">
+  <div class="brandmark gold">RALPH</div>
+  <h2 class="h-big">The NO-PASS List</h2>
+  <p class="lead">If an image does any of these, it does not ship — no exceptions.</p>
+  <div class="cols2" style="margin-top:20px">
+    <div>
+      <div class="mini">Looks cheap / looks fake</div>
+      <ul class="clean x">
+        <li>Mannequin / foam-head product shots.</li>
+        <li>Plastic synthetic sheen; stiff “helmet” hair.</li>
+        <li>AI-generated hair as the product shot (fake hairline, flicker).</li>
+        <li>Flat, even, ring-lit or hard on-camera flash.</li>
+        <li>Cluttered backgrounds; amateur phone snaps.</li>
+        <li>Over-saturated colour; over-sharpened e-commerce look.</li>
+        <li>Text over the photo; multiple focal points; logo clutter.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="mini">Breaks modesty (absolute)</div>
+      <ul class="clean x">
+        <li>Bare shoulders, décolletage, cleavage, bare arms.</li>
+        <li>Sleeveless, low, tight or clingy garments.</li>
+        <li>Any skin below the neckline.</li>
+        <li>Reclining or overtly sensual posing.</li>
+        <li>Direct, seductive eye-contact selling to camera.</li>
+        <li>Competitor names or marks in any prompt or asset.</li>
+      </ul>
+      <p class="cap" style="margin-top:14px">These modesty failures are stated as rules, not illustrated — we hold ourselves to the same standard as the work.</p>
+    </div>
+  </div>
+  <div class="pnum">18</div>
+</section>
+
+<!-- 20-21 SHOOT BRIEF -->
+<section class="page">
+  <div class="brandmark gold">RALPH</div>
+  <div class="section-no">Section VIII</div>
+  <h2 class="h-big">The Shoot Brief</h2>
+  <p class="lead">Hand this to the photographer. It turns the whole book into a day of shooting.</p>
+  <table class="spec">
+    <tr><td>Light</td><td>One soft key at ~45°; a dedicated hair/rim light high and behind for the “halo” that gives strands dimension. Contain it with a grid — too much power blows out texture. Never flat or frontal flash.</td></tr>
+    <tr><td>Lens &amp; settings</td><td>90–105mm macro for strand detail (f/8–f/16 for sharpness across the strands); f/2.8–f/4 for portrait separation. Shoot tethered. Expect ~50 frames per look — hair never falls the same way twice.</td></tr>
+    <tr><td>Prep</td><td>Dry shampoo / texturizing spray to <em>kill synthetic shine</em> before shooting. Don't over-retouch flyaways in post — that creates fake “helmet hair.”</td></tr>
+    <tr><td>Palette</td><td>Warm ivory seamless for product; window-lit workshop for heritage (B&amp;W). One world, held all day.</td></tr>
+    <tr><td>Modesty</td><td>Collarbone-up or high necklines/long sleeves already styled in. Upright, confident poses. No coverage decisions left to the crop.</td></tr>
+  </table>
+  <div class="pnum">19</div>
+</section>
+
+<section class="page paper">
+  <div class="brandmark gold">RALPH</div>
+  <h2 class="h-big">The Shot List</h2>
+  <div class="cols2" style="margin-top:18px">
+    <div>
+      <div class="mini">Hero stills</div>
+      <ul class="clean">
+        <li>Back-of-head, voluminous waves, ivory void (the signature).</li>
+        <li>Three-quarter profile, high neck, rim-lit halo.</li>
+        <li>Crown / part top-down — proof of a realistic part.</li>
+        <li>¾ back over-shoulder — nape blend, no cap edge.</li>
+      </ul>
+      <div class="mini" style="margin-top:16px">Texture &amp; detail (macro)</div>
+      <ul class="clean">
+        <li>Strand-level crown; hairline / temple (baby hairs into skin).</li>
+        <li>Part-line; ends &amp; tips (natural taper, not blunt).</li>
+      </ul>
+    </div>
+    <div>
+      <div class="mini">Movement &amp; video — the closers</div>
+      <ul class="clean">
+        <li>Slow-mo hair flip on a head-turn.</li>
+        <li>Hand drawing through the hair, close crop.</li>
+        <li>Walk-away / turn-back, shoulders-up, modest.</li>
+        <li>Light wind for individual-strand flyaways.</li>
+      </ul>
+      <div class="mini" style="margin-top:16px">Heritage &amp; lifestyle</div>
+      <ul class="clean">
+        <li>Atelier hands: combing, setting, knotting (B&amp;W).</li>
+        <li>Before → process → after (locked camera, for trust).</li>
+        <li>Golden-hour ¾ (true daylight colour), modest wardrobe.</li>
+        <li>Vanity / mirror morning moment; Shabbos-table ¾.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pnum">20</div>
+</section>
+
+<!-- 22 TWO TRACKS -->
+<section class="page">
+  <div class="brandmark gold">RALPH</div>
+  <div class="section-no">Section IX</div>
+  <h2 class="h-big">Two Tracks, One House</h2>
+  <p class="lead">America and Israel genuinely conflict on what may be shown. Don't blend them — run one brand spine in two registers.</p>
+  <div class="two-track">
+    <div class="tt">
+      <div class="hd"><div class="mini">For US · Miami · Italy · Paris</div><h4>The Editorial Track</h4></div>
+      <div class="bd">
+        <p><b>Audience:</b> Modern-Orthodox / Yeshivish buyers who want undetectable, styled, expensive hair.</p>
+        <p><b>Imagery:</b> face-forward (collarbone-up), styled, aspirational — the profile &amp; turtleneck heroes.</p>
+        <p><b>Voice:</b> “Chanel” — aspirational, English (Yiddish for warmth).</p>
+        <p><b>Channel:</b> Instagram, WhatsApp, the pop-up tour, trunk shows.</p>
+      </div>
+    </div>
+    <div class="tt">
+      <div class="hd"><div class="mini">For Israel-Haredi · strict Hasidic</div><h4>The Atelier Track</h4></div>
+      <div class="bd">
+        <p><b>Audience:</b> Bnei-Brak-coded, humility-first; markets where a woman's face can't be printed.</p>
+        <p><b>Imagery:</b> faceless — back-of-head, hands, texture, the workshop. Old-world craft, not the wearer.</p>
+        <p><b>Voice:</b> discreet, kavod-coded, Hebrew; no superlatives.</p>
+        <p><b>Channel:</b> word-of-mouth, salon reputation, vetted lists, print-adjacent.</p>
+      </div>
+    </div>
+  </div>
+  <p style="margin-top:22px;font-size:.9rem;color:var(--ink-soft)"><b class="gold">The gift:</b> the faceless “Atelier” track isn't a compromise — luxury houses shoot faceless product all the time. It works <em>everywhere</em>, including the strictest channels. Test every Israel-facing asset against one question: <em>“Would this pass in Yated?”</em></p>
+  <div class="pnum">21</div>
+</section>
+
+<!-- 23 BENCHMARKS + COPY -->
+<section class="page paper">
+  <div class="brandmark gold">RALPH</div>
+  <div class="section-no">Section X</div>
+  <h2 class="h-big">Benchmarks &amp; Copy Hooks</h2>
+  <div class="cols2" style="margin-top:18px">
+    <div>
+      <div class="mini">What the market looks like</div>
+      <ul class="clean">
+        <li><b>Emulate Shevy</b> ($6,850+) — B&amp;W, single-line taglines, product-as-hero. The most “Italian house” look out there.</li>
+        <li>Yaffa &amp; BK Wigs prove real-model warmth + video (BK's 69K following) sells.</li>
+        <li><b>Two open lanes:</b> nobody publishes a confident price ladder — own “openly tiered, confidently expensive.” And Ralph's <b>1966 + Italy</b> heritage beats every rival but one.</li>
+        <li>Cheapest tell across the whole category: mannequin heads.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="mini">Copy hooks the research handed us</div>
+      <ul class="clean">
+        <li>“Hand-tied, strand by strand.”</li>
+        <li>“100% European virgin human hair — never synthetic.”</li>
+        <li>“A part that moves. A hairline that isn't a straight line.”</li>
+        <li>“It moves like your own hair.” <span style="color:var(--ink-soft)">(→ why video closes.)</span></li>
+        <li>“Atelier-direct since 1966. Made in Italy.”</li>
+      </ul>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="big-quote">The things that make a wig look <em>real</em> are the same things that make Ralph worth the price. Photograph those, and the brand sells itself.</div>
+  <div class="pnum">22</div>
+</section>
+
+<!-- 24 CLOSE -->
+<section class="page dark cover">
+  <div class="eyebrow" style="letter-spacing:.5em;color:var(--gold3)">The House of RALPH</div>
+  <div style="height:26px"></div>
+  <div class="wm gold" style="font-size:4.6rem">RALPH</div>
+  <div class="rule"></div>
+  <p style="max-width:44ch;text-align:center;color:rgba(255,255,255,.8);font-family:var(--serif);font-size:1.5rem;font-style:italic;line-height:1.4">Chanel-level polish.<br/>Bnei-Brak-level discretion.<br/>The luxury is in the restraint.</p>
+  <div class="foot" style="color:rgba(255,255,255,.5)">Talkerstein · Brand &amp; Imagery Direction · June 2026</div>
+</section>
+
+</body>
+</html>

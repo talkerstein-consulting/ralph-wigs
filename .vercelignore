@@ -1,0 +1,14 @@
+content_dump.txt
+*.lnk
+.claude
+images/_send_lookbook.jpg
+images/_contact_sheet.png
+images/_lookbook_preview.png
+images/WhatsApp*.jpeg
+
+images/real/
+images/_*.png
+images/_*.mp4
+images/_*.jpg
+*.xlsx
+*.py
